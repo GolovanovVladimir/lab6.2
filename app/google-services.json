@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "275666318195",
+    "project_id": "bobbyheadman2023",
+    "storage_bucket": "bobbyheadman2023.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275666318195:android:e6eb291108d90bc1d6cb06",
+        "android_client_info": {
+          "package_name": "ru.netology.nmedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275666318195-oa6e153p41k4ga1nnrid4h9g6jsairoj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATAawd8xtqYOVSPZoqPXXoyH427fwkEUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275666318195-oa6e153p41k4ga1nnrid4h9g6jsairoj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:275666318195:android:af770f5b9e38e3d1d6cb06",
+        "android_client_info": {
+          "package_name": "ru.netologya.nmedia"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "275666318195-oa6e153p41k4ga1nnrid4h9g6jsairoj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyATAawd8xtqYOVSPZoqPXXoyH427fwkEUw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "275666318195-oa6e153p41k4ga1nnrid4h9g6jsairoj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
