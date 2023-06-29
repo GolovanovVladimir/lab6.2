@@ -71,8 +71,18 @@ class PostViewModel(application: Application) : AndroidViewModel(application) {
     }
 
     fun likeById(id: Long, likedByMe: Boolean) {
-        thread { repository.likeById(id, likedByMe) }
-    }
+       thread { repository.likeById(id, likedByMe)
+           _data.postValue(FeedModel(loading = true))
+           try {
+               // Данные успешно получены
+               val posts = repository.getAll()
+               FeedModel(posts = posts, empty = posts.isEmpty())
+           } catch (e: IOException) {
+               // Получена ошибка
+               FeedModel(error = true)
+           }.also(_data::postValue)
+        }
+     }
 
     fun removeById(id: Long) {
         thread {
