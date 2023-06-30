@@ -35,8 +35,8 @@ class PostRepositoryImpl: PostRepository {
             }
     }
 
-    override fun likeById(id: Long, likedByMe: Boolean) {
-        if (!likedByMe) {
+    override fun likeById(id: Long, likedByMe: Boolean) : Post {
+        return if (!likedByMe) {
             val requestPost: Request = Request.Builder()
                 .post(gson.toJson(id).toRequestBody(jsonType))
                 .url("${BASE_URL}/api/slow/posts/$id/likes")
@@ -44,7 +44,10 @@ class PostRepositoryImpl: PostRepository {
 
             client.newCall(requestPost)
                 .execute()
-                .close()
+                .let { it.body?.string() ?: throw RuntimeException("body is null") }
+                .let {
+                    gson.fromJson(it, Post::class.java)
+                }
         }
         else {
             val requestDelete: Request = Request.Builder()
@@ -54,20 +57,12 @@ class PostRepositoryImpl: PostRepository {
 
             client.newCall(requestDelete)
                 .execute()
-                .close()
+                .let { it.body?.string() ?: throw RuntimeException("body is null") }
+                .let {
+                    gson.fromJson(it, Post::class.java)
+                }
         }
-        val request: Request = Request.Builder()
-            .url("${BASE_URL}/api/slow/posts")
-            .build()
-
-        return client.newCall(request)
-            .execute()
-            .let { it.body?.string() ?: throw RuntimeException("body is null") }
-            .let {
-                gson.fromJson(it, typeToken.type)
-            }
     }
-
     override fun save(post: Post) {
         val request: Request = Request.Builder()
             .post(gson.toJson(post).toRequestBody(jsonType))
